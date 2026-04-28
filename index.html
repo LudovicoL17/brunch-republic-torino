@@ -135,6 +135,59 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 0 32px}
 
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
+
+/* ---- CONTATTI ---- */
+.sec-contatti{padding:88px 0;background:#111111}
+.contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:900px){.contatti-grid{grid-template-columns:1fr;gap:3rem}}
+.contatti-eyebrow{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:#d4a843;margin-bottom:1rem;display:block}
+.contatti-title{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;color:#f0e8d4;line-height:1.1;margin-bottom:2rem}
+.contatti-items{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.ci-row{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:rgba(240,232,212,.5);font-size:.88rem;transition:color .22s;cursor:pointer}
+.ci-row:hover{color:#f0e8d4}
+.ci-row svg{width:15px;height:15px;flex-shrink:0;stroke:#d4a843;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* map widget */
+.map-widget{position:relative;display:inline-block;cursor:pointer;user-select:none}
+.map-inner{position:relative;overflow:hidden;border-radius:16px;background:rgba(18,14,8,.97);border:1px solid rgba(212,168,67,.15);width:240px;height:140px;will-change:transform;transition:width .45s cubic-bezier(.34,1.26,.64,1),height .45s cubic-bezier(.34,1.26,.64,1),transform .15s ease,border-color .25s}
+.map-widget:hover .map-inner{border-color:rgba(212,168,67,.45)}
+.map-inner.expanded{width:340px;height:260px}
+.map-inner{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.map-bg{position:absolute;inset:0;background:rgba(212,168,67,.06);opacity:0;transition:opacity .35s .1s;pointer-events:none}
+.map-inner.expanded .map-bg{opacity:1}
+.map-svg{position:absolute;inset:0;width:100%;height:100%}
+.map-road{stroke:rgba(255,255,255,.15);fill:none;stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset .7s ease}
+.map-road-sec{stroke:rgba(255,255,255,.06);fill:none;stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset .5s ease}
+.map-inner.expanded .map-road{stroke-dashoffset:0}
+.map-inner.expanded .map-road-sec{stroke-dashoffset:0}
+.map-road:nth-child(2){transition-delay:.1s}.map-road:nth-child(3){transition-delay:.2s}.map-road:nth-child(4){transition-delay:.15s}.map-road:nth-child(5){transition-delay:.25s}
+.map-road-sec:nth-child(6){transition-delay:.3s}.map-road-sec:nth-child(7){transition-delay:.35s}.map-road-sec:nth-child(8){transition-delay:.38s}.map-road-sec:nth-child(9){transition-delay:.42s}.map-road-sec:nth-child(10){transition-delay:.46s}
+.map-bld{position:absolute;border-radius:2px;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.1);opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s}
+.map-inner.expanded .map-bld{opacity:1;transform:scale(1)}
+.map-bld:nth-child(1){transition-delay:.45s}.map-bld:nth-child(2){transition-delay:.52s}.map-bld:nth-child(3){transition-delay:.58s}.map-bld:nth-child(4){transition-delay:.63s}.map-bld:nth-child(5){transition-delay:.68s}.map-bld:nth-child(6){transition-delay:.55s}
+.map-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);opacity:0;transition:transform .4s cubic-bezier(.34,1.56,.64,1) .3s,opacity .3s .3s;filter:drop-shadow(0 0 8px rgba(212,168,67,.6))}
+.map-inner.expanded .map-pin{transform:translate(-50%,-50%) scale(1);opacity:1}
+.map-fade{position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(18,14,8,.97),transparent);pointer-events:none;opacity:0;transition:opacity .35s .1s}
+.map-inner.expanded .map-fade{opacity:1}
+.map-grid-pat{position:absolute;inset:0;opacity:.03;transition:opacity .3s}
+.map-inner.expanded .map-grid-pat{opacity:0}
+.map-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:1rem}
+.map-topbar{display:flex;align-items:center;justify-content:space-between}
+.map-icon-w{opacity:1;transition:opacity .3s}
+.map-inner.expanded .map-icon-w{opacity:0}
+.map-live{display:flex;align-items:center;gap:.35rem;background:rgba(255,255,255,.06);border-radius:999px;padding:.2rem .55rem}
+.map-live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80}
+.map-live span{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4)}
+.map-bottom{display:flex;flex-direction:column;gap:.25rem}
+.map-bottom h4{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.9);transition:transform .3s;letter-spacing:-.01em}
+.map-widget:hover .map-bottom h4{transform:translateX(3px)}
+.map-coords{font-size:.68rem;font-family:'Courier New',monospace;color:rgba(255,255,255,.35);height:0;overflow:hidden;opacity:0;transition:height .25s,opacity .25s}
+.map-inner.expanded .map-coords{height:1.2em;opacity:1;transition-delay:.15s}
+.map-underline{height:1px;background:linear-gradient(to right,rgba(212,168,67,.55),transparent);width:30%;transition:width .4s ease}
+.map-widget:hover .map-underline,.map-inner.expanded .map-underline{width:100%}
+.map-hint{position:absolute;bottom:-1.4rem;left:50%;transform:translateX(-50%);font-size:.62rem;color:rgba(240,232,212,.5);white-space:nowrap;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}
+.map-widget:hover .map-hint{opacity:1;transform:translateX(-50%) translateY(-2px)}
+.map-inner.expanded~.map-hint{opacity:0!important}
+
 </style>
 </head>
 <body>
@@ -153,7 +206,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 0 32px}
 
 <section class="hero" id="home">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=1800&q=90&auto=format&fit=crop" alt="Brunch Republic Torino — cocktail bar Torino">
+    <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=1800&q=90&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Brunch Republic Torino — cocktail bar Torino">
   </div>
   <div class="hero-content">
     <p class="hero-year">Torino &mdash; dal 1985</p>
@@ -199,7 +252,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 0 32px}
 </section>
 
 <div class="split-section" id="storia">
-  <div class="split-img reveal"><img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=900&q=85&auto=format&fit=crop" alt="Bancone Brunch Republic Torino" loading="lazy"></div>
+  <div class="split-img reveal"><img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?w=900&q=85&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Bancone Brunch Republic Torino" loading="lazy"></div>
   <div class="split-text reveal">
     <p class="section-label">Il locale</p>
     <h2 class="section-title"><em>Brunch Republic Torino</em></h2>
@@ -219,6 +272,66 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 0 32px}
     </div>
   </div>
 </div>
+
+
+<!-- CONTATTI -->
+<section class="sec-contatti" id="contatti">
+  <div class="container">
+    <div class="contatti-grid">
+      <div>
+        <span class="contatti-eyebrow">Dove siamo</span>
+        <h2 class="contatti-title">Vieni a trovarci.</h2>
+        <div class="contatti-items">
+          <a class="ci-row" href="tel:+393428481773">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>342 848 1773</span>
+          </a>
+          <a class="ci-row" href="mailto:torino@brunchrepublic.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>torino@brunchrepublic.com</span>
+          </a>
+          <div class="ci-row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Via Cesare Battisti — Torino</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <div class="map-widget" id="mapW" role="button" aria-label="Espandi mappa Brunch Republic Torino">
+          <div class="map-inner" id="mapI">
+            <iframe id="mapIframe"
+              src="about:blank"
+              data-src="https://maps.google.com/maps?q=Via+Cesare+Battisti,+Torino&z=16&output=embed&hl=it"
+              style="position:absolute;inset:0;width:100%;height:100%;border:none;filter:invert(90%) hue-rotate(180deg) saturate(0.8);opacity:0;transition:opacity .4s .1s"
+              allowfullscreen loading="lazy" title="Mappa Brunch Republic Torino">
+            </iframe>
+            <div class="map-fade"></div>
+            <div class="map-grid-pat">
+              <svg width="100%" height="100%"><defs><pattern id="mgrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0L0 0 0 20" fill="none" stroke="white" stroke-width=".5"/></pattern></defs><rect width="100%" height="100%" fill="url(#mgrid)"/></svg>
+            </div>
+            <div class="map-content">
+              <div class="map-topbar">
+                <div class="map-icon-w">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                    <line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/>
+                  </svg>
+                </div>
+                <div class="map-live"><div class="map-live-dot"></div><span>Live</span></div>
+              </div>
+              <div class="map-bottom">
+                <h4>Via Cesare Battisti — Torino</h4>
+                <p class="map-coords">45.0703° N, 7.6869° E</p>
+                <div class="map-underline"></div>
+              </div>
+            </div>
+          </div>
+          <p class="map-hint">Clicca per espandere</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="container">
@@ -251,6 +364,37 @@ footer{background:#000;border-top:1px solid var(--border);padding:60px 0 32px}
 <script>
 const io = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), {threshold:.1});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+<script>
+// Map widget
+(function(){
+  var w=document.getElementById('mapW'),inner=document.getElementById('mapI');
+  var iframe=document.getElementById('mapIframe');
+  if(!w||!inner)return;
+  var expanded=false,mapLoaded=false;
+  w.addEventListener('mousemove',function(e){
+    var r=inner.getBoundingClientRect();
+    var dx=(e.clientX-(r.left+r.width/2))/50,dy=(e.clientY-(r.top+r.height/2))/50;
+    inner.style.setProperty('--rx',(-dy*4)+'deg');
+    inner.style.setProperty('--ry',(dx*4)+'deg');
+  });
+  w.addEventListener('mouseleave',function(){
+    inner.style.setProperty('--rx','0deg');
+    inner.style.setProperty('--ry','0deg');
+  });
+  w.addEventListener('click',function(){
+    expanded=!expanded;
+    inner.classList.toggle('expanded',expanded);
+    if(expanded&&!mapLoaded&&iframe){
+      mapLoaded=true;
+      iframe.src=iframe.dataset.src;
+      iframe.addEventListener('load',function(){iframe.style.opacity='1';},{once:true});
+    }
+  });
+  w.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){expanded=!expanded;inner.classList.toggle('expanded',expanded);}
+  });
+})();
 </script>
 </body>
 </html>
